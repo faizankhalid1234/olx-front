@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import api from '@/lib/api';
 import { getAuthToken, setUser } from '@/lib/auth';
 
@@ -72,6 +73,10 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <Head>
+        <title>My Profile - OLX Frontend</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <div className="container mx-auto px-4 max-w-2xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">My Profile</h1>
 

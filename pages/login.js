@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import api from '@/lib/api';
 import { setAuthToken, setUser } from '@/lib/auth';
 
@@ -36,6 +37,10 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <title>Login - OLX Frontend</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

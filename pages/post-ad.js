@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import api from '@/lib/api';
 import { getAuthToken } from '@/lib/auth';
 
@@ -73,6 +74,10 @@ export default function PostAd() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <Head>
+        <title>Post Ad - OLX Frontend</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <div className="container mx-auto px-4 max-w-2xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Post Your Ad</h1>
 

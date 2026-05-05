@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import api from '@/lib/api';
 import { getAuthToken } from '@/lib/auth';
 import { getImageBaseUrl } from '@/lib/constants';
@@ -54,6 +55,10 @@ export default function MyAds() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <Head>
+        <title>My Ads - OLX Frontend</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">My Ads</h1>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import api from '@/lib/api';
 import { getAuthToken } from '@/lib/auth';
 import { getImageBaseUrl } from '@/lib/constants';
@@ -68,6 +69,10 @@ export default function AdDetails() {
   if (!ad) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Head>
+          <title>Ad Not Found - OLX Frontend</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
         <div className="text-center">
           <p className="text-gray-600 text-lg">Ad not found</p>
           <Link href="/" className="text-primary mt-4 inline-block">
@@ -80,6 +85,25 @@ export default function AdDetails() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <Head>
+        <title>{`${ad.title} - OLX Frontend`}</title>
+        <meta
+          name="description"
+          content={ad.description?.slice(0, 160) || 'View ad details on OLX Frontend.'}
+        />
+        <meta property="og:title" content={`${ad.title} - OLX Frontend`} />
+        <meta
+          property="og:description"
+          content={ad.description?.slice(0, 160) || 'View ad details on OLX Frontend.'}
+        />
+        <meta
+          property="og:image"
+          content={
+            ad.images?.[0] ? `${getImageBaseUrl()}${ad.images[0]}` : 'http://localhost:3000/icons/icon-512.svg'
+          }
+        />
+        <link rel="canonical" href={`http://localhost:3000/ads/${ad._id}`} />
+      </Head>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}

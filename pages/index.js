@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import api from '@/lib/api';
 import AdCard from '@/components/AdCard';
 import CategoryGrid from '@/components/CategoryGrid';
@@ -64,6 +65,19 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f2f4f5]">
+      <Head>
+        <title>OLX Frontend - Latest Classified Ads</title>
+        <meta
+          name="description"
+          content="Discover the latest classified ads for mobiles, cars, homes, jobs, and more across Pakistan."
+        />
+        <meta property="og:title" content="OLX Frontend - Latest Classified Ads" />
+        <meta
+          property="og:description"
+          content="Find great deals or sell your products quickly on OLX Frontend."
+        />
+        <link rel="canonical" href="http://localhost:3000/" />
+      </Head>
       {/* Hero Search - OLX Style */}
       <div className="bg-primary text-white py-8">
         <div className="container mx-auto px-4">
